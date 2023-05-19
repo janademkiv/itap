@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from articles import views
+from django.urls import path, re_path
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    re_path(r'^article/(?P<article_id>\d+)$', views.get_article, name='get_article'),
+    path('articles/', views.archive, name='archive'),
+    path('admin/', admin.site.urls)
 ]
+
+# urlpatterns = [
+#     re_path(r'^article/(?P<article_id>\d+)$', views.get_article, name='get_article')]
+

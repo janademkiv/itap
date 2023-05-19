@@ -30,3 +30,84 @@ img {
 h1 {
     font-family: cursive;
 }
+
+
+
+body {
+        background: #1abc9c;
+        font-family: Tahoma, Arial, sans-serif;
+        color: #ffffff;
+        width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+.header_main_page {
+    text-align: center;
+}
+
+#logo_article{
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom right, #18f2cc, 50%, #0c5a4c);
+}
+
+#all_states{
+    float:right;
+}
+
+#logo_text {
+    display: inline-block;
+    margin: 0;
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+#logo_article_id img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.header img {
+    display: inline-block;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#all_states{
+    text-decoration: underline;
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+.post-title{
+    text-decoration: underline;
+}
+
+.article-text{
+    text-align: justify;
+}
+
+.article-info div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.article-created-date{
+    float: right;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.article-author{
+    font-size: 22px;
+}
+
+a {
+color: white;
+}
