@@ -1,4 +1,6 @@
 # Create your views here.
+import sqlite3
+
 from django.http import Http404
 from django.shortcuts import render, redirect
 
@@ -19,6 +21,12 @@ def get_article(request, article_id):
 
 def create_post(request):
     if request.method == "POST":
+
+        # Создаем подключение к БД.
+        conn = sqlite3.connect('db.sqlite3')
+        # Создаем курсор
+        cursor = conn.cursor()
+
         # обработать данные формы, если метод POST
         form = {
             'text': request.POST["text"], 'title': request.POST["title"]
@@ -26,8 +34,15 @@ def create_post(request):
         # в словаре form будет храниться информация, введенная пользователем
         if form["text"] and form["title"]:
             # если поля заполнены без ошибок
-            article = Article.objects.create(text=form["text"], title=form["title"], author=request.user)
-            return redirect('get_article', article_id=article.id)
+            cursor.execute("SELECT title FROM articles_article WHERE title = '{0}'".format(form["title"]))
+
+            if cursor.fetchone():
+                form['errors'] = u"Такая статья уже есть в системе, придумайте другое название."
+                return render(request, 'create_post.html', {'form': form})
+
+            else:
+                article = Article.objects.create(text=form["text"], title=form["title"], author=request.user)
+                return redirect('get_article', article_id=article.id)
         # перейти на страницу поста
         else:
             # если введенные данные некорректны
