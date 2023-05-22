@@ -23,14 +23,16 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import views as auth_views
 
 
+
 urlpatterns = [
     re_path(r'^article/(?P<article_id>\d+)$', views.get_article, name='get_article'),
     path('articles/', views.archive, name='archive'),
+    path('', views.archive, name='archive'),
     path('admin/', admin.site.urls),
     path('article/new/', views.create_post, name='article_new'),
-    re_path(r'^signup/$', views.sign_up, name='sign_up'),
+    path('sign_in/', views.sign_in, name='sign_in'),
     path('accounts/', include('django.contrib.auth.urls')),
+    re_path(r'^signup/$', views.sign_up, name='sign_up'),
     path('login/', LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('sign_in/', views.sign_in, name='sign_in'),
 ]
