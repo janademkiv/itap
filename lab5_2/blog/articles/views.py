@@ -3,6 +3,8 @@ import sqlite3
 
 from django.http import Http404
 from django.shortcuts import render, redirect
+from .forms import SignUpForm
+
 
 from .models import Article
 
@@ -51,3 +53,19 @@ def create_post(request):
     else:
         # просто вернуть страницу с формой, если метод GET
         return render(request, 'create_post.html', {})
+
+
+def sign_up(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            return redirect('login')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration.html', {'form': form})
+
+
+def sign_in(request):
+    return render(request, 'login.html')

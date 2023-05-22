@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/static/sign_up.css">
+</head>
+<body>
+<div>
+    <div class="center_block">
+        <div class="sign_in_logo">
+            <img src="{{ STATIC_URL }}/static/logo.svg" class="image_sign_in">
+        </div>
+        <div class="authorization_block">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button id="login_button" type="submit">Вход</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/static/sign_up.css">
+</head>
+<div>
+    <div class="center_block">
+        <div class="sign_in_logo">
+            <img src="{{ STATIC_URL }}/static/logo.svg" class="image_sign_in">
+        </div>
+        {% block content %}
+        <div class="authorization_block">
+            <form method="post" action="/signup/">
+                {% csrf_token %}
+                {{form}}
+                {% if form.password2.errors %}
+                <div class="error-message">{{ form.password2.errors }}</div>
+                {% endif %}
+                {% include 'my_errors.html' %}
+
+
+                <input type="submit" value="Sign up" class="button_sign_in">
+            </form>
+            {% endblock %}
+        </div>
+
+    </div>
+</div>

@@ -17,7 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from articles import views
+from django.urls import include
 from django.urls import path, re_path
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import views as auth_views
+
 
 
 urlpatterns = [
@@ -25,6 +29,10 @@ urlpatterns = [
     path('articles/', views.archive, name='archive'),
     path('admin/', admin.site.urls),
     path('article/new/', views.create_post, name='article_new'),
+    re_path(r'^signup/$', views.sign_up, name='sign_up'),
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 # urlpatterns = [

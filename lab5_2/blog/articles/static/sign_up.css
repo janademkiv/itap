@@ -1,0 +1,72 @@
+.center_block{
+    margin: 64px auto; /* auto - для центрирования по горизонтали, 64px - для вертикального отступа сверху */
+    padding: 32px 24px 24px 24px;
+    width: 300px;
+    height: 500px;
+}
+
+.sign_in_logo{
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.image_sign_in{
+    width: 128px;
+    height: 128px;
+    padding-bottom: 64px;
+}
+
+.input_email, .input_password, .authorization_block input{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    padding: 8px 12px 8px 9px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+label{
+    padding-bottom: 8px;
+    display: block;
+}
+
+.authorization_block{
+    background-color: #fff0fd;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.button_sign_in{
+    background-color: #ffd7fd;
+}
+
+#login_button {
+    background-color: #ffd7fd;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    padding: 8px 12px 8px 9px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+ul.errorlist {
+    display: none;
+}
+
+ul.errorlist + p.error-message {
+    color: red !important;
+}
+
+
+.error-message {
+    color: #e67093;
+    font-weight: bold;
+}
+
+body {
+background: #1abc9c;
+}

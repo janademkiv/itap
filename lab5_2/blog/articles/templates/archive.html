@@ -9,6 +9,18 @@
 <div class="header">
 <!--    <img src="{{ STATIC_URL }} /logo.svg" />-->
 </div>
+{% if user.is_authenticated %}
+    <div class='autorization_block'>
+        <div class='add_article_section'><a href="{% url 'article_new' %}" class="a_sig">Написать статью</a></div>
+        <div class='sig_out_section'><a href="{% url 'logout' %}?next=/ " class="a_sig">Logout</a></div>
+    </div>
+    {% else %}
+    <!-- Если пользователь не авторизован, то отображаем блок авторизации -->
+    <div class='autorization_block'>
+        <div class='sig_in_section'><a href="{% url 'login' %}" class="a_sig">Sig in</a></div>
+        <div class='sig_up_section'><a href="{% url 'sign_up' %}" class="a_sig">Sig up</a></div>
+    </div>
+    {% endif %}
 <div class="archive">
     {% for post in posts %}
     <div class="one-post">
