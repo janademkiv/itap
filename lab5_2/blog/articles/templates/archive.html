@@ -8,17 +8,23 @@
 <body>
 <div class="header">
 <!--    <img src="{{ STATIC_URL }} /logo.svg" />-->
+    {% if request.user.is_authenticated %}
+    <p>Hello! {{user}}</p>
+    {% else %}
+    <p>Привет гость!</p>
+    {% endif %}
+
 </div>
 {% if user.is_authenticated %}
     <div class='autorization_block'>
-        <div class='add_article_section'><a href="{% url 'article_new' %}" class="a_sig">Написать статью</a></div>
-        <div class='sig_out_section'><a href="{% url 'logout' %}?next=/ " class="a_sig">Logout</a></div>
+        <div id="article_button"><a href="{% url 'article_new' %}" class="a_sig">Написать статью</a></div>
+        <div id="logou"><a href="{% url 'logout' %}?next=/ " class="a_sig">Logout</a></div>
     </div>
     {% else %}
     <!-- Если пользователь не авторизован, то отображаем блок авторизации -->
     <div class='autorization_block'>
-        <div class='sig_in_section'><a href="{% url 'login' %}" class="a_sig">Sig in</a></div>
-        <div class='sig_up_section'><a href="{% url 'sign_up' %}" class="a_sig">Sig up</a></div>
+        <div class='sig_in_section' id="logout_button2"><a href="{% url 'login' %}" class="a_sig">Sig in</a></div>
+        <div class='sig_up_section' id="logout_button3"><a href="{% url 'sign_up' %}" class="a_sig">Sig up</a></div>
     </div>
     {% endif %}
 <div class="archive">

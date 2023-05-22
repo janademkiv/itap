@@ -3,6 +3,42 @@ body {
     font-family: Tahoma, Arial, sans-serif;
     color: #333;
 }
+
+#article_button{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom right, #18f2cc, 50%, #0c5a4c);
+}
+
+.a_sig {
+    text-decoration: none;
+}
+.autorization_block {
+    margin-block: inherit;
+}
+
+#logou {
+  display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom right, #18f2cc, 50%, #0c5a4c);
+}
+
+#logout_button2 {
+  display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom right, #18f2cc, 50%, #0c5a4c);
+}
+
+#logout_button3 {
+  display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom right, #18f2cc, 50%, #0c5a4c);
+}
+
 table {
     border-collapse: collapse;
 }
