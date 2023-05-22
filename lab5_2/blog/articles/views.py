@@ -5,7 +5,6 @@ from django.http import Http404
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
 
-
 from .models import Article
 
 
